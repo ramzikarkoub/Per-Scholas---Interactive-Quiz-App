@@ -1,6 +1,5 @@
 // Import quiz data from an external file
 import { quiz } from "./data.js";
-console.log(quiz.length); // Log the total number of quiz questions
 
 // DOM element references
 const questionContainer = document.querySelector(".question"); // Container for questions
@@ -16,7 +15,6 @@ function runQuiz(quiz) {
   // Loop through all questions in the quiz
   for (let i = 0; i < quiz.length; i++) {
     const element = quiz[i]; // Current question object
-    console.log(element); // Log the current question object
 
     // Create a container for the question
     const questionDiv = document.createElement("div");
@@ -50,17 +48,13 @@ function runQuiz(quiz) {
 
         // If the answer is correct
         if (checkAnswer(ChosenAnswer, correctAnswer)) {
-          console.log("Correct Answer");
           answer.classList.add("correct"); // Highlight the correct answer
           score++; // Increment the score
           questionAnswered++; // Increment the count of answered questions
-          console.log(score); // Log the updated score
         } else {
-          console.log("Incorrect Answer");
           answer.classList.add("false"); // Highlight the incorrect answer
           questionAnswered++; // Increment the count of answered questions
         }
-        console.log(questionAnswered); // Log the number of questions answered
 
         // Check if all questions have been answered
         if (questionAnswered == quiz.length) {
@@ -98,4 +92,3 @@ const checkAnswer = (ChosenAnswer, correctAnswer) => {
 
 // Run the quiz
 runQuiz(quiz);
-console.log(score); // Log the final score (initially 0)

@@ -10,35 +10,42 @@ body {
   background-color: #f4f4f4;
   color: #333;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
   padding-top: 50px;
   overflow: hidden;
 }
 
 .main {
-  background-color: #fff;
+  margin-top: 50px;
+  background: #fff;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
+  max-width: 900px;
   height: 100vh;
-  max-width: 600px;
   overflow-y: auto;
 }
 
-h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: blueviolet;
-}
+/* Headings */
+h1,
 h3 {
   text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: rgb(25, 115, 240);
+  margin-bottom: 20px;
+}
+
+h3 {
   font-size: 1.2rem;
   margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 /* Quiz Container */
@@ -47,14 +54,14 @@ h3 {
 }
 
 .quiz-question {
-  background-color: #fafafa;
+  background: #fafafa;
   border-radius: 8px;
   margin-bottom: 20px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h2.questionTitle {
+.quiz-question h2 {
   font-size: 1.5rem;
   margin-bottom: 15px;
   color: #444;
@@ -62,12 +69,12 @@ h2.questionTitle {
 
 /* Options */
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 
 ul li {
-  background-color: #e0e0e0;
+  background: #e0e0e0;
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 10px;
@@ -76,29 +83,36 @@ ul li {
 }
 
 ul li:hover {
-  background-color: #d1d1d1;
+  background: #d1d1d1;
   transform: scale(1.05);
 }
 
 ul li.correct {
-  background-color: #4caf50;
-  color: white;
+  background: #4caf50;
+  color: #fff;
 }
 
 ul li.false {
-  background-color: #f44336;
-  color: white;
+  background: #f44336;
+  color: #fff;
 }
 
-/* Media Query for responsiveness */
+/* Media Queries */
 @media (max-width: 700px) {
+  .main {
+    margin-top: 20px;
+    width: 95%;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For IE and Edge */
+  }
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
-  h2.questionTitle {
+  .quiz-question h2 {
     font-size: 1.25rem;
   }
+
   ul li {
     font-size: 0.9rem;
     padding: 8px;
