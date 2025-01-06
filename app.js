@@ -27,6 +27,7 @@ function runQuiz(quiz) {
       optionsList.appendChild(answer);
 
       answer.addEventListener("click", () => {
+        disableOptions(optionsList);
         const ChosenAnswer = j;
         const correctAnswer = element.answer;
         checkAnswer(ChosenAnswer, correctAnswer);
@@ -45,6 +46,14 @@ function runQuiz(quiz) {
     questionContainer.appendChild(questionDiv);
   }
 }
+
+const disableOptions = (optionsList) => {
+  const allOptions = optionsList.querySelectorAll("li");
+  allOptions.forEach((el) => {
+    el.style.pointerEvents = "none";
+    el.classList.add("disabled");
+  });
+};
 
 const checkAnswer = (ChosenAnswer, correctAnswer) => {
   return ChosenAnswer == correctAnswer;
