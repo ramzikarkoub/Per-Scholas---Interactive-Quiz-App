@@ -1,38 +1,57 @@
 import { quiz } from "./data.js";
 
+const questionContainer = document.querySelector(".question");
 const questionTitle = document.querySelector(".questionTitle");
 const ul = document.querySelector(".ul");
+console.log(questionContainer);
 
 function runQuiz(quiz) {
   for (let i = 0; i < quiz.length; i++) {
     const element = quiz[i];
-    questionTitle.textContent = element.question;
-    ul.innerHTML = "";
+    console.log(element);
+
+    const questionDiv = document.createElement("div");
+    questionDiv.classList.add("quiz-question");
+
+    const questionTitleElement = document.createElement("h2");
+    questionTitleElement.textContent = element.question;
+
+    questionDiv.appendChild(questionTitleElement);
+
+    const optionsList = document.createElement("ul");
 
     for (let j = 0; j < element.options.length; j++) {
       const option = element.options[j];
       const answer = document.createElement("li");
       answer.textContent = option;
-      ul.appendChild(answer);
+
+      optionsList.appendChild(answer);
 
       answer.addEventListener("click", () => {
         console.log("jjjj", j);
-        const ChosenAnswer = j; // Use `j` directly for the index
+        const ChosenAnswer = j;
         console.log(ChosenAnswer);
         const correctAnswer = element.answer;
-        checkAnswer(ChosenAnswer, correctAnswer); // Pass correct answer too
+        checkAnswer(ChosenAnswer, correctAnswer);
         console.log(checkAnswer);
+
         if (checkAnswer(ChosenAnswer, correctAnswer)) {
           console.log("Correct Answer");
-        } else console.log("incorrect Answer");
+          answer.classList.add("correct");
+        } else {
+          console.log("Incorrect Answer");
+          answer.classList.add("false");
+        }
       });
     }
+
+    questionDiv.appendChild(optionsList);
+    questionContainer.appendChild(questionDiv);
   }
 }
 
 const checkAnswer = (ChosenAnswer, correctAnswer) => {
   return ChosenAnswer == correctAnswer;
 };
-console.log(checkAnswer);
 
 runQuiz(quiz);
