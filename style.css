@@ -15,7 +15,7 @@ body {
   height: 100vh;
   margin: 0;
   padding-top: 50px;
-  overflow: hidden; /* Prevent scroll if the content overflows */
+  overflow: hidden;
 }
 
 .main {
