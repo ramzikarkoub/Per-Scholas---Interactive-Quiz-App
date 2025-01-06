@@ -3,7 +3,6 @@ import { quiz } from "./data.js";
 const questionContainer = document.querySelector(".question");
 const questionTitle = document.querySelector(".questionTitle");
 const ul = document.querySelector(".ul");
-console.log(questionContainer);
 
 function runQuiz(quiz) {
   for (let i = 0; i < quiz.length; i++) {
@@ -28,12 +27,9 @@ function runQuiz(quiz) {
       optionsList.appendChild(answer);
 
       answer.addEventListener("click", () => {
-        console.log("jjjj", j);
         const ChosenAnswer = j;
-        console.log(ChosenAnswer);
         const correctAnswer = element.answer;
         checkAnswer(ChosenAnswer, correctAnswer);
-        console.log(checkAnswer);
 
         if (checkAnswer(ChosenAnswer, correctAnswer)) {
           console.log("Correct Answer");
